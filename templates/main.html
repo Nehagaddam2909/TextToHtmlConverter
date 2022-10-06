@@ -1,0 +1,83 @@
+{% load static %}
+
+    {% include 'navbar.html' %}
+    {% block content %}
+
+    <div class="heading">
+        Text to HTML converter</div>
+    
+        
+           
+            <div class="input-output">
+        <div class="input">
+            <ul class="list-view">
+                <button class="list-item" onclick="getBold()"><i class="fa-solid fa-bold">dbnm</i></button>
+                <button class="list-item" onclick="italic()"><i class="fa-solid fa-italic"></i></button>
+                <button class="list-item" ><i class="fa-solid fa-strikethrough"></i></button>
+                <li class="list-item">|</li>
+
+                <button class="list-item"><i class="fa-solid fa-list"></i></button>
+                <button class="list-item"><i class="fa-solid fa-list-ol"></i></button>
+                <li class="list-item">|</li>
+                <button class="list-item" onclick="heading()"><i class="fa-solid fa-h"></i></button>
+                <button class="list-item" ><i class="fa-solid fa-paragraph"></i></button>
+                <li class="list-item">|</li>
+                <!-- <button class="list-item preview"><i class="fa-solid fa-eye "></i></button> -->
+            </ul>
+        <form method="POST" action="{% url 'result' %}" >
+            {% csrf_token %}
+            <div class="input-textarea">
+                
+                <textarea data-autoresize="true" rows="19" name="text-area" id="text-area">
+                    {% if input != None%}
+                        {{input}}
+                    {% endif %}
+                </textarea>
+            </div>
+
+        
+        </div>
+        <div class="output">
+            
+            <textarea class="output-textarea" >
+                {% if data != None%}
+                {{data}}
+            {% endif %}</textarea>
+        </div>
+    
+       
+    </div>
+    <div class="align-items"><input type="submit" class="submit" onclick="{% url 'result' %}"></div>
+</form>
+    
+    <script>
+        function getBold()
+        {
+            
+            var sel=document.getElementById("text-area");
+            var text=sel.value;
+            text=text.substring(0,sel.selectionStart)+"**"+text.substring(sel.selectionStart,sel.selectionEnd)+"**"+text.substring(sel.selectionEnd+1);
+            sel.value=text;
+            
+            console.log(text);
+        }
+        function italic()
+        {
+            var sel=document.getElementById("text-area");
+            var text=sel.value;
+            text=text.substring(0,sel.selectionStart)+'\n'+"*"+text.substring(sel.selectionStart,sel.selectionEnd)+"*"+'\n'+text.substring(sel.selectionEnd+1);
+            sel.value=text;
+            
+            console.log(text);
+        }
+        function heading()
+        {
+            var sel=document.getElementById("text-area");
+            var text=sel.value;
+            text=text.substring(0,sel.selectionStart)+'\n'+"#"+text.substring(sel.selectionStart,sel.selectionEnd)+"#"+'\n'+text.substring(sel.selectionEnd+1);
+            sel.value=text;
+            
+            console.log(text);
+        }
+    </script>
+    {% endblock %}

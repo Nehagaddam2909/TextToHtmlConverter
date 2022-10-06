@@ -1,0 +1,115 @@
+.input
+{
+    margin:3rem;
+    margin-left:3rem;
+    outline: 2px solid #bab9b6;
+    background: transparent;
+    width: 48%;
+    height: 40rem;
+}
+.output
+{
+    margin:1rem;
+    width:48%;
+    outline: 2px solid #bab9b6;
+    margin:3rem;
+}
+.list-view
+{
+    padding: 3rem;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    overflow-x: scroll;
+    border-bottom: 2px solid #bab9b6;
+    
+}
+
+.list-item
+{
+    padding-left: 2rem;
+    color:white;
+    background: transparent;
+
+    padding-right:2rem;
+}
+textarea
+{
+    width: 100%;
+    border:none;
+    outline: none;
+    padding: 0.1rem;
+    background: transparent;
+    overflow: hidden;
+    color:white;
+    height: 30rem;
+}
+.cls
+{
+    color:white;
+}
+
+.seperator
+{
+    padding-left: -1rem;
+    padding-right: -1rem;
+}
+
+.submit
+{
+    padding:1rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    justify-content: flex-end;
+   
+}
+@media (max-width:1250px)
+{
+    .list-view
+    {
+        overflow-x: scroll;
+    }
+    .list-item
+    {
+        margin-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width:750px) {
+    .input-output
+    {
+        display: block;
+        width: 100%;
+    }
+    .input{
+        width: 90%;
+        margin:auto;
+    }
+    .output
+    {
+        
+        width: 90%;
+        margin: auto;
+    }
+    .list-view{
+        
+        padding:auto;
+       
+    }
+    
+    .list-item
+    {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media (max-width:450px) {
+    .list-view
+    {
+        /* padding: .2rem; */
+        overflow-x: scroll;
+    }
+}
